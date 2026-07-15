@@ -132,10 +132,6 @@
   .nav button:hover{border-color:var(--cyan);color:var(--cyan-dk);}
   .nav .ct{font-size:12.5px;font-weight:700;color:var(--muted);min-width:44px;text-align:center;}
 
-  /* speaker notes */
-  .notes{position:fixed;left:0;right:0;bottom:0;z-index:150;background:rgba(15,22,50,.96);color:#E7EAF6;padding:16px 22px;font-size:14px;line-height:1.5;transform:translateY(100%);transition:transform .3s;max-height:34vh;overflow:auto;}
-  .notes.on{transform:translateY(0);}
-  .notes .nl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;font-weight:700;}
 
   @media print{
     @page{size:1280px 720px;margin:0;}
@@ -143,7 +139,7 @@
     .deck{position:static;display:block;}
     #stage{transform:none!important;width:1280px;height:720px;}
     .slide{opacity:1!important;pointer-events:auto;position:relative;page-break-after:always;}
-    .progress,.brand,.fs,.counter,.zone,.notes,.nav{display:none!important;}
+    .progress,.brand,.fs,.counter,.zone,.nav{display:none!important;}
   }
 </style>
 </head>
@@ -152,7 +148,7 @@
 <div id="stage">
 
   <!-- 0 · COVER -->
-  <div class="slide cover active" data-notes="This is the shared GitHub Actions setup for Day 3 — the same fork/app/key/enable loop underpins the Part 2 adversarial review and the Part 3 security &amp; OWASP review. Everyone does the whole loop themselves — fork, install the app, add the key, enable Actions, open a PR. The pay-off: Claude reviews every pull request automatically. Set expectations: ~10 minutes, follow along on your VM. Make sure everyone is signed into GitHub first.">
+  <div class="slide cover active">
     <div class="inner">
       <div class="cover__logos">
         <div class="lp"><img src="github-actions-security-review/acceler_logo.png" alt="Acceler"></div>
@@ -166,12 +162,12 @@
         <span class="chip">🔑 <b>1 API key</b> secret</span>
         <span class="chip">✅ <b>1 PR</b> to see it run</span>
       </div>
-      <div class="foot">← → navigate · F fullscreen · "." speaker notes</div>
+      <div class="foot">← → navigate · F fullscreen</div>
     </div>
   </div>
 
   <!-- 1 · WHAT YOU'LL DO -->
-  <div class="slide" data-notes="Give them the whole loop before the steps so nobody is lost. Five one-time setup actions, then one PR to prove it works. The important idea: the workflow lives in the repo already — you're just giving it a key and permission to run, then triggering it with a PR.">
+  <div class="slide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">The loop · what you're about to do</div><div class="h">Five steps, then <span class="accent">open one PR</span></div></div>
       <div class="pipe">
@@ -190,7 +186,7 @@
   </div>
 
   <!-- 2 · START ON YOUR VM -->
-  <div class="slide" data-notes="Before anyone touches GitHub — this all happens inside the VM, not on your laptop's browser. Everyone: open your VM, and inside it open the Chrome browser. That Chrome, running in the VM, is where you'll do every step that follows. Don't move on until everyone's VM is up with Chrome open.">
+  <div class="slide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Start here · hands-on, inside your VM</div><div class="h">First, get into <span class="accent">your VM</span></div></div>
       <p class="lead" style="margin-bottom:16px;">Everything below happens <b>inside the VM</b> — not on your own laptop's browser. Get in first, then keep this guide open alongside.</p>
@@ -206,7 +202,7 @@
   </div>
 
   <!-- 3 · STEP 1 · FORK -->
-  <div class="slide walkslide" data-notes="Step one. Everyone forks Anshaj's repo. The Fork button is top-right on the repo page. Keep the default settings and create the fork under their own account. This forked copy is where everything else happens.">
+  <div class="slide walkslide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Step 1 of 5 · Fork</div><div class="h"><span class="stg">Fork</span> Make your own copy</div></div>
       <div class="stagebar"><span class="sb on">1 · Fork</span><span class="sb">2 · App</span><span class="sb">3 · Key</span><span class="sb">4 · Actions</span><span class="sb">5 · PR</span></div>
@@ -223,7 +219,7 @@
   </div>
 
   <!-- 3 · STEP 2 · INSTALL APP -->
-  <div class="slide walkslide" data-notes="Step two. Install the Claude GitHub App and grant it access to the fork you just made. When it asks which repositories, choose Only select repositories and pick claude-security. This is what lets Claude post reviews back onto the PR.">
+  <div class="slide walkslide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Step 2 of 5 · GitHub App</div><div class="h"><span class="stg">App</span> Install the Claude GitHub App</div></div>
       <div class="stagebar"><span class="sb done">1 ✓</span><span class="sb on">2 · App</span><span class="sb">3 · Key</span><span class="sb">4 · Actions</span><span class="sb">5 · PR</span></div>
@@ -240,7 +236,7 @@
   </div>
 
   <!-- 4a · STEP 3 · FIND THE SECRETS PAGE -->
-  <div class="slide walkslide" data-notes="Step three, first half — just getting to the right page before you touch anything. On your fork, click the Settings tab along the top nav (left screenshot). Then, down the left sidebar, open Secrets and variables and click Actions (right screenshot). That lands you on the 'Actions secrets and variables' page. Next slide: actually add the key there.">
+  <div class="slide walkslide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Step 3 of 5 · Secret</div><div class="h"><span class="stg">Key</span> Find the secrets page</div></div>
       <div class="stagebar"><span class="sb done">1 ✓</span><span class="sb done">2 ✓</span><span class="sb on">3 · Key</span><span class="sb">4 · Actions</span><span class="sb">5 · PR</span></div>
@@ -260,7 +256,7 @@
   </div>
 
   <!-- 4 · STEP 3 · ADD SECRET -->
-  <div class="slide walkslide" data-notes="Step three. Add the API key as a repository secret. The name has to be exactly ANTHROPIC_API_KEY — the workflow reads it by that name. Point at Settings, then Secrets and variables, then Actions, then New repository secret. Everyone should end up with a secret that looks like the screenshot.">
+  <div class="slide walkslide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Step 3 of 5 · Secret</div><div class="h"><span class="stg">Key</span> Add your <span style="font-family:var(--mono);font-size:.8em;">ANTHROPIC_API_KEY</span></div></div>
       <div class="stagebar"><span class="sb done">1 ✓</span><span class="sb done">2 ✓</span><span class="sb on">3 · Key</span><span class="sb">4 · Actions</span><span class="sb">5 · PR</span></div>
@@ -279,7 +275,7 @@
   </div>
 
   <!-- 5 · STEP 4 · ENABLE ACTIONS -->
-  <div class="slide walkslide" data-notes="Step four. GitHub disables workflows on forks by default — that's the warning screen in the screenshot. Click the Actions tab, read the notice, and hit the green I understand my workflows, go ahead and enable them. Without this, nothing runs when they open a PR.">
+  <div class="slide walkslide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Step 4 of 5 · Enable</div><div class="h"><span class="stg">Actions</span> Turn workflows on</div></div>
       <div class="stagebar"><span class="sb done">1 ✓</span><span class="sb done">2 ✓</span><span class="sb done">3 ✓</span><span class="sb on">4 · Actions</span><span class="sb">5 · PR</span></div>
@@ -296,7 +292,7 @@
   </div>
 
   <!-- 6 · STEP 5 · OPEN A PR -->
-  <div class="slide walkslide" data-notes="Step five — the trigger. Create a new branch, add a tiny file with one line, and open a pull request. Two things must be right, and they're on the next slide too: the PR base must be your own fork's main, and the changed file must live under a watched path so the OWASP review fires. Walk them to the screenshot — base is main, from exp1, one file changed.">
+  <div class="slide walkslide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Step 5 of 5 · Pull request</div><div class="h"><span class="stg">PR</span> Open a PR to trigger the review</div></div>
       <div class="stagebar"><span class="sb done">1 ✓</span><span class="sb done">2 ✓</span><span class="sb done">3 ✓</span><span class="sb done">4 ✓</span><span class="sb on">5 · PR</span></div>
@@ -308,14 +304,14 @@
           <div class="paste"><div class="px">This is just a couple of empty changes really</div><button class="cpb" data-copy="This is just a couple of empty changes really">📋 Copy</button></div>
           <div class="wstep"><span class="wn">3</span><div><div class="wt">Open the pull request</div><div class="wd">Base = <b>main of your own fork</b> · compare = your branch. Create it — the checks start running.</div></div></div>
         </div>
-        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="github-actions-security-review/shot-pr.png" alt="Create demo_file.md PR — merge into main from exp1, backend/demo_file.md"></div></div>
+        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="shot-pr.png" alt="Create demo_file.md PR — merge into main from exp1, backend/demo_file.md"></div></div>
       </div>
       <div class="banner warn"><span class="ic">⚠️</span><div><b>Base must be your fork's main</b> — not anshajk/main. If the PR targets the original repo, Actions runs there, fails, and you'll see nothing.</div></div>
     </div>
   </div>
 
   <!-- 7 · THE TWO GOTCHAS -->
-  <div class="slide" data-notes="Pause on this slide — it's where people trip. Two rules. One: the PR base is your own fork's main; GitHub often defaults the base to the upstream repo, so they must switch it. Two: the changed file has to sit under one of the watched paths or the OWASP review never fires. Read the three paths out loud.">
+  <div class="slide">
     <div class="inner">
       <div class="shead"><div class="eyebrow">Read this before you click “Create”</div><div class="h">Two things people <span class="accent">get wrong</span></div></div>
       <div class="c2">
@@ -338,7 +334,7 @@
   </div>
 
   <!-- 8 · WHAT HAPPENS NEXT / HANDOFF -->
-  <div class="slide dark stmt" data-notes="Land it. Once the PR is open, the workflow runs and Claude comments its review right on the pull request — under Checks and in the conversation. Now the fun part: make a change that actually has a vulnerability and watch Claude catch it. Hand off to the exercise.">
+  <div class="slide dark stmt">
     <div class="inner">
       <div class="kick">Now the CI does the reviewing</div>
       <div class="big">Every PR gets a <span class="accent">Claude review.</span></div>
@@ -357,23 +353,21 @@
 <button class="fs" id="fsBtn" title="Fullscreen">⛶</button>
 <div class="brand"><img src="github-actions-security-review/acceler_logo.png" alt="Acceler"></div>
 <div class="nav"><button id="prevBtn" aria-label="Previous">‹</button><span class="ct" id="navCount">1 / 11</span><button id="nextBtn" aria-label="Next">›</button></div>
-<div class="notes" id="notes"><div class="nl">Speaker notes</div><div id="notesC"></div></div>
 
 <script>
   const slides=[...document.querySelectorAll('.slide')], total=slides.length;
   let cur=0; const $=id=>document.getElementById(id);
-  const speaker=slides.map(s=>s.dataset.notes||''); let notesOn=false, ctO;
+  let ctO;
 
   // scale the fixed 1280x720 canvas to fit any screen
   function fit(){ var st=$('stage'); if(!st) return; var s=Math.min(window.innerWidth/1280, window.innerHeight/720); st.style.transform='scale('+s+')'; }
   window.addEventListener('resize',fit); window.addEventListener('load',fit); fit();
 
-  function updNotes(){ $('notesC').textContent=speaker[cur]||''; }
   function progress(){
     $('progress').style.width=((cur+1)/total*100)+'%';
     const c=$('counter'); c.textContent=(cur+1)+' / '+total; c.classList.add('on');
     clearTimeout(ctO); ctO=setTimeout(()=>c.classList.remove('on'),2000);
-    $('navCount').textContent=(cur+1)+' / '+total; updNotes();
+    $('navCount').textContent=(cur+1)+' / '+total;
   }
   function goTo(n){ if(n<0||n>=total) return; slides[cur].classList.remove('active'); cur=n; slides[cur].classList.add('active');
     var walk=slides[cur].classList.contains('walkslide'); slides[cur].scrollTop=0; progress(); }
@@ -382,7 +376,6 @@
     if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();goTo(cur+1);}
     else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(cur-1);}
     else if(e.key==='Home')goTo(0); else if(e.key==='End')goTo(total-1);
-    else if(e.key==='.'){ notesOn=!notesOn; $('notes').classList.toggle('on',notesOn); }
     else if(e.key==='f'||e.key==='F'){ if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();} }
   });
 
