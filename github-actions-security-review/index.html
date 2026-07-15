@@ -155,7 +155,7 @@
   <div class="slide cover active" data-notes="This is the shared GitHub Actions setup for Day 3 — the same fork/app/key/enable loop underpins the Part 2 adversarial review and the Part 3 security &amp; OWASP review. Everyone does the whole loop themselves — fork, install the app, add the key, enable Actions, open a PR. The pay-off: Claude reviews every pull request automatically. Set expectations: ~10 minutes, follow along on your VM. Make sure everyone is signed into GitHub first.">
     <div class="inner">
       <div class="cover__logos">
-        <div class="lp"><img src="acceler_logo.png" alt="Acceler"></div>
+        <div class="lp"><img src="github-actions-security-review/acceler_logo.png" alt="Acceler"></div>
       </div>
       <div class="badge">GitHub Actions</div>
       <h1>Claude reviews <span class="accent">every pull request</span></h1>
@@ -247,11 +247,11 @@
       <div class="crumb" style="margin-bottom:16px;"><b>Settings</b> <span class="sep">›</span> <b>Secrets and variables</b> <span class="sep">›</span> <b>Actions</b></div>
       <div class="shot2">
         <figure class="shotfig">
-          <div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="Settings.png" alt="Fork Settings tab open on the Actions secrets and variables page"></div>
+          <div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="github-actions-security-review/Settings.png" alt="Fork Settings tab open on the Actions secrets and variables page"></div>
           <figcaption class="shotcap">1 · Click the <b>Settings</b> tab on your fork</figcaption>
         </figure>
         <figure class="shotfig">
-          <div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="Secret_Actions.png" alt="Left sidebar with Secrets and variables expanded and Actions selected"></div>
+          <div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="github-actions-security-review/Secret_Actions.png" alt="Left sidebar with Secrets and variables expanded and Actions selected"></div>
           <figcaption class="shotcap">2 · In the sidebar: <b>Secrets and variables</b> → <b>Actions</b></figcaption>
         </figure>
       </div>
@@ -272,7 +272,7 @@
           <div class="wstep"><span class="wn">3</span><div><div class="wt">Name it exactly, then paste your key</div><div class="wd">Name must match what the workflow expects — copy it below. Paste your Anthropic key into <b>Secret</b>, then <b>Add secret</b>.</div></div></div>
           <div class="paste"><div class="px">ANTHROPIC_API_KEY</div><button class="cpb" data-copy="ANTHROPIC_API_KEY">📋 Copy</button></div>
         </div>
-        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="shot-secret.png" alt="Repository secrets showing ANTHROPIC_API_KEY"></div></div>
+        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="github-actions-security-review/shot-secret.png" alt="Repository secrets showing ANTHROPIC_API_KEY"></div></div>
       </div>
       <div class="banner"><span class="ic">🔑</span><div>Get the name wrong and the workflow can't find the key. It must be <b>ANTHROPIC_API_KEY</b> — nothing else.</div></div>
     </div>
@@ -289,7 +289,7 @@
           <div class="wstep"><span class="wn">2</span><div><div class="wt">Enable them</div><div class="wd">Click <b>“I understand my workflows, go ahead and enable them.”</b></div></div></div>
           <div class="wstep"><span class="wn">3</span><div><div class="wt">Done — workflows are live</div><div class="wd">Now the security-review workflow will fire the next time a pull request opens.</div></div></div>
         </div>
-        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="shot-enable-actions.png" alt="Workflows aren't being run on this forked repository — enable button"></div></div>
+        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="github-actions-security-review/shot-enable-actions.png" alt="Workflows aren't being run on this forked repository — enable button"></div></div>
       </div>
       <div class="banner"><span class="ic">▶️</span><div>Skip this and your PR opens with <b>no checks running</b>. If you see “Workflows aren't being run on this forked repository,” you haven't enabled them yet.</div></div>
     </div>
@@ -308,7 +308,7 @@
           <div class="paste"><div class="px">This is just a couple of empty changes really</div><button class="cpb" data-copy="This is just a couple of empty changes really">📋 Copy</button></div>
           <div class="wstep"><span class="wn">3</span><div><div class="wt">Open the pull request</div><div class="wd">Base = <b>main of your own fork</b> · compare = your branch. Create it — the checks start running.</div></div></div>
         </div>
-        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="shot-pr.png" alt="Create demo_file.md PR — merge into main from exp1, backend/demo_file.md"></div></div>
+        <div class="wr"><div class="shot"><div class="shot__bar"><i></i><i></i><i></i></div><img src="github-actions-security-review/shot-pr.png" alt="Create demo_file.md PR — merge into main from exp1, backend/demo_file.md"></div></div>
       </div>
       <div class="banner warn"><span class="ic">⚠️</span><div><b>Base must be your fork's main</b> — not anshajk/main. If the PR targets the original repo, Actions runs there, fails, and you'll see nothing.</div></div>
     </div>
@@ -355,7 +355,7 @@
 <div class="zone zone--prev" id="zprev"></div>
 <div class="zone zone--next" id="znext"></div>
 <button class="fs" id="fsBtn" title="Fullscreen">⛶</button>
-<div class="brand"><img src="acceler_logo.png" alt="Acceler"></div>
+<div class="brand"><img src="github-actions-security-review/acceler_logo.png" alt="Acceler"></div>
 <div class="nav"><button id="prevBtn" aria-label="Previous">‹</button><span class="ct" id="navCount">1 / 11</span><button id="nextBtn" aria-label="Next">›</button></div>
 <div class="notes" id="notes"><div class="nl">Speaker notes</div><div id="notesC"></div></div>
 
